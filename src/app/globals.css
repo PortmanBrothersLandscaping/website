@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Matches the logo's actual palette: black/charcoal + red, with warm
+     neutrals for backgrounds. Deliberately no green — red+green next to
+     each other read as Christmas rather than "landscaping". */
+  --color-primary: #201d1a;
+  --color-primary-dark: #100f0d;
+  --color-primary-light: #f0ece5;
+  --color-accent: #c8102e;
+  --color-accent-dark: #a10d25;
+  --color-earth: #6b4226;
+  --color-cream: #faf8f3;
+  --color-ink: #1c1f1d;
+  --color-ink-soft: #4a5049;
+
+  --background: var(--color-cream);
+  --foreground: var(--color-ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-earth: var(--color-earth);
+  --color-cream: var(--color-cream);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* offset anchor scrolling so section headings clear the sticky header */
+section[id] {
+  scroll-margin-top: 5.5rem;
 }
